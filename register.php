@@ -19,6 +19,13 @@ preg_match(/^[A-Za-z]+$/,$password)&&
 preg_match(/^[A-Za-z]+$/,$confirmpassword)&&
 filter_var(FILTER_VALIDATE_EMAIL($email))&&
 $password===$confirmpassword){
+$sql="SELECT* FROM user where email=$email";
+mysqli_query($con, $sql);
+$count = mysqli_num_rows();
+if($count>0){$emailError = "email already exist";}
+else={
+
+}
 
 
 }
