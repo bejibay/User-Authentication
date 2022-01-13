@@ -1,0 +1,10 @@
+DROP TABLE if exist user;
+CREATE TABLE user (
+id INT(15) AUTO_INCREMENT UNSIGNED PRIMARY KEY,
+firstname VARCHAR(255),
+lastname VARCHAR(255),
+email VARCHAR(255),
+password VARCHAR(255),
+date TIMESTAMP,
+activationurl VARCHAR(255)
+)
