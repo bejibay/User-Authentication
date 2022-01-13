@@ -1,9 +1,29 @@
+
+
+
 <?php 
 // include the configuration file
 include confg.php;?>
 <?php 
-// include the configuration file
-include confg.php;?>
+<?php 
+if(isset($_POST['signup'])){
+//define variables
+$firstname=isset($_POST['firstname']);
+$lastname=isset($_POST['lastname']);
+$email=isset($_POST['email']);
+$password=isset($_POST['password']);
+$confirmpassword=isset($_POST['confirmpassword']);
+if(preg_match(/^[A-Za-z]+$/,$firstname)&&
+preg_match(/^[A-Za-z]+$/,$lastname)&&
+preg_match(/^[A-Za-z]+$/,$password)&&
+preg_match(/^[A-Za-z]+$/,$confirmpassword)&&
+filter_var(FILTER_VALIDATE_EMAIL($email))&&
+$password===$confirmpassword){
+
+
+}
+}
+<?php 
 <!DOCTYPE html>
 <html lang="en">
 <head>
