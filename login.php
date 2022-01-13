@@ -30,7 +30,7 @@ include confg.php;?>
 <input type="text" id="password" name="password" placeholder="password">
 <input type="submit" name="signin" value="Sign In">
 </form>
-<p>Don't have an account <a href="/login">Sign up</a>
+<p>Don't have an account <a href="/register">Sign up</a>
 </div>
 </div>
 <div class="footer">
