@@ -43,6 +43,7 @@ include confg.php;?>
 <input type ="radio">Passwords are matching
 <input type="submit" name="signup" value="Sign up">
 </form>
+<p>Already a member <a href="/login">Sign In </a></p>
 </div>
 </div>
 <div class="footer">
