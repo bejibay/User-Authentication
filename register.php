@@ -7,8 +7,8 @@ include confg.php;?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Login Page</title>
-<meta name="description" content="login page">
+<title>Create Accohnt</title>
+<meta name="description" content="create account">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="auth.css">
@@ -25,18 +25,23 @@ include confg.php;?>
 </div>
 <div class="row">
  <div class="col-12">
-<h1>LOGIN</h1>
-</div>
-<div>
-<div class="col-6">
 <form action ="" method ="post">
-<label for="name">Name:</label>
-<input type="text" id="name" name="name">
-<label for="email">Email:</label>
+<h2>Create Account</>
+<label for="firstname">Firstname</label>
+<input type="text" id="firstname" name="firstname">
+<label for="lastname">Lastname</label>
+<input type="text" id="lastname" name="lastname">
+<label for="email">Email</label>
 <input type="text" id="email" name="email">
-<label for="phone">Pone Number:</label>
-<input type="text" id="phone" name="phone">
-<input type="submit" value="SUBMIT">
+<label for="password">Password</label>
+<input type="text" id="password" name="password">
+<label for="confirmpassword">Confirm Password</label>
+<input type="text" id="confirmpassword" name="confirmpassword">
+<input type ="radio">Contains at least one upper case letter
+<input type ="radio">Contains at least one special character
+<input type ="radio">Contains at least one number
+<input type ="radio">Passwords are matching
+<input type="submit" name="signup" value="Sign up">
 </form>
 </div>
 </div>
