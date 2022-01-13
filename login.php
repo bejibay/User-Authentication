@@ -22,23 +22,19 @@ include confg.php;?>
 </div>
 <div class="row">
  <div class="col-12">
-<h1>LOGIN</h1>
-</div>
-<div>
-<div class="col-6">
 <form action ="" method ="post">
-<label for="name">Name:</label>
-<input type="text" id="name" name="name">
+<h2>Sign In</h2>
 <label for="email">Email:</label>
-<input type="text" id="email" name="email">
-<label for="phone">Pone Number:</label>
-<input type="text" id="phone" name="phone">
-<input type="submit" value="SUBMIT">
+<input type="text" id="email" name="email" placeholder="johndoe@gmail.com">
+<label for="password">Password:</label>
+<input type="text" id="password" name="password" placeholder="password">
+<input type="submit" name="signin" value="Sign In">
 </form>
+<p>Don't have an account <a href="/login">Sign up</a>
 </div>
 </div>
 <div class="footer">
-&copy; copyright  ABC limited
+&copy; copyright  ABC limited"
 </div>
 <script src="landingpage.js"></script>
 </div>
