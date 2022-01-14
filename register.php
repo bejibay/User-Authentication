@@ -38,11 +38,13 @@ $password = mysqli_real_escape_string($conn, $password);
 $passwordhash = password_hash($password, PASSWORD_BCRYPT);
 
 $sql = "INSERT INTO user(firstname,lastname,email,
-password,timestamp,reseturl,status)VALUES($firstname,$lastname,$email,$password,
-$timestamp,$reseturl,$status)";
-mysqli-querry($conn,$sql);
+password,date,activationurl,status)VALUES($firstname,$lastname,$email,$password,
+time(),$activationurl,$status)";
+mysqli_querry($conn,$sql);
 if(mysqli_query($conn,$sql)){
+
 //send activation email
+
 $to = $_POST['email'];
 $msg = "/activation.php?activationurl='<?php echo $activationurl ?>"
 $header = "from:bejibay@gmail.com"
