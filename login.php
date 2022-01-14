@@ -65,19 +65,19 @@ if(mysqli_num_rows(resulttwo)<1) $passwordError ="Password is incorrect";
  <div class="col-12">
 <form action ="" method ="post">
 <h2>Sign In</h2>
-<label for="email">Email:</label>
-<div class ="user">
-<input type="text" id="email" name="email" placeholder="johndoe@gmail.com">
-<i class ="fa fa-envelope icon"></i>
-<label for="password">Password:</label>
+<label for="email" class="userlogin">Email:</label>
+<div class ="userlogin">
+<input type="text" class="userlogin" id="email" name="email" placeholder="johndoe@gmail.com">
+<i class ="fa fa-envelope icona"></i>
+<label for="password" class="userlogin">Password:</label>
 </div>
-<div class ="user">
-<input type="text" id="password" name="password" placeholder="password">
-<i class ="fa fa-key icon"></i>
+<div class ="userlogin">
+<input type="text" class ="userlogin" id="password" name="password" placeholder="password">
+<i class ="fa fa-key icona"></i>
 </div>
 <input type="submit" name="signin" value="Sign In">
 </form>
-<p>Don't have an account <a href="/register">Sign up</a>
+<p class ="buttom">Don't have an account <a href="/register" class ="sign">Sign up</a>
 </div>
 </div>
 <div class="footer">
