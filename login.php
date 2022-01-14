@@ -18,7 +18,7 @@ $sql = " SELECT* FROM user where email = $email AND
 password = $password AND status = 1";
 $result = mysqli_querry($conn, $sql);
 if(mysql_num_rows($result)>0){
-while($row = mysqli_fetch_array(result)){
+while($row = mysqli_fetch_array($result)){
 $email = $row['id'];
 $firstname = $row['firstname'];
 $lastname = $row['lastname'];
@@ -29,7 +29,12 @@ header("Location:/dashboard");
 }
 }
 }
-
+// set the errors for email, password and signin
+if(empty($email)) $emailError = "email cannot be empty";
+if(!(filter_var($email,FILTER_VALIDATE_EMAIL))
+$emailError = "email is not valid";
+if(empty($password)) $passwordError ="email cannot be empty";
+if(mysqli_num_rows(result)<1) $accountNotExist =" You are not a registered user";
 
 ?>
 <!DOCTYPE html>
