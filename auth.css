@@ -56,7 +56,12 @@ width: 100%;
   width: 100%;
   padding: 15px;
  }
-
+.userlogin label{
+width: 50%;
+}
+.register{
+width: 50%
+}
 input[type="subnit"]{
 background: #4dd5ff;
 color:  white;
@@ -74,19 +79,6 @@ color: #edd5ab;
 
 .icona{
 color:  white;
-}
-.iconinput {
-  padding: 10px;
-  background: #4dd5ff;
-  color: white;
-  min-width: 50px;
-  text-align: centre;
-}
-
-.input-field {
-  width: 100%;
-  padding:10px;
-  outline:none;
 }
 
 @media screen and(min-width:768px){
