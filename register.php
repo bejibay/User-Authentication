@@ -42,7 +42,17 @@ mail($to,$msg,$header);
 }
 }
 }
-
+//set the errors for email, password and signup
+if(empty($firstname)) $fnameError = "first cannot be empty";
+if(empty($lastname)) $lnameError = "last name cannot empty";
+if(empty($email)) $emailError = "email cannot be empty";
+if(empty($password)) $passwordError ="password cannot be empty";
+if($password != $confirmpassword) $password =  " passwords do not match";
+if(!(filter_var($email,FILTER_VALIDATE_EMAIL))
+$emailError = "email is not valid";
+if(mysqli_num_rows(resultone)<1) $accountError =" invalid entries or account not exis";
+if(mysqli_num_rows(resulttwo)<1) $passwordError ="Password is 
+?>
 <?php 
 <!DOCTYPE html>
 <html lang="en">
