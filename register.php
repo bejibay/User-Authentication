@@ -17,19 +17,30 @@ if(preg_match(/^[A-Za-z]+$/,$firstname)&&
 preg_match(/^[A-Za-z]+$/,$lastname)&&
 preg_match(/^[A-Za-z]+$/,$password)&&
 preg_match(/^[A-Za-z]+$/,$confirmpassword)&&
-filter_var(FILTER_VALIDATE_EMAIL($email))&&
+filter_var($email, FILTER_VALIDATE_EMAIL)&&
 $password===$confirmpassword){
 $sql="SELECT* FROM user where email=$email";
-mysqli_query($con, $sql);
-$count = mysqli_num_rows();
-if($count>0){$emailError = "email already exist";}
-else={
-
+$resultemail = mysqli_query($con, $sql);
+if(mysqli_num_rows($resultemail)<1){
+//generate activation URL
+$activateurl =md5(rand(0,999).time());
+$sql = "INSERT INTO user(firstname,lastname,email,
+password,timestamp,reseturl,status)VALUES($firstname,$lastname,$email,$password,
+$timestamp,$reseturl,$status)";
+mysqli-querry($conn,$sql);
+if(mysqli_query($conn,$sql)){
+//send activation email
+$to = $_POST['email'];
+$msg = "/activation.php?activationurl='<?php echo $activationurl ?>"
+$header = "from:bejibay@gmail.com"
+mail($to,$msg,$header);
+}
+}
+}
+}
+}
 }
 
-
-}
-}
 <?php 
 <!DOCTYPE html>
 <html lang="en">
