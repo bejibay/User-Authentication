@@ -15,11 +15,13 @@ $lastname=isset($_POST['lastname']);
 $email=isset($_POST['email']);
 $password=isset($_POST['password']);
 $confirmpassword=isset($_POST['confirmpassword']);
+$passwordpattern ="/^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#\-_$%^&+=§!\?])
+[0-9A-Za-z@#\-_$%^&+=§!\?]{8}$/";
+                    
 if(preg_match("/^[A-Za-z]*$/",$firstname)&&
 preg_match("/^[A-Za-z]*$/",$lastname)&&
-preg_match(/^[A-Za-z]+$/,$password)&&
-preg_match(/^[A-Za-z]+$/,$confirmpassword)&&
-filter_var($email, FILTER_VALIDATE_EMAIL)&&
+preg_match($passwordpattern,$password)&&
+ && filter_var($email, FILTER_VALIDATE_EMAIL)&&
 $password==$confirmpassword){
 $sql="SELECT* FROM user where email=$email";
 $result = mysqli_query($conn, $sql);
@@ -50,21 +52,22 @@ $subject = " Activate jour account";
 $msg = 'Click on email below to activate <br>
 <a href="/activation.php?activationurl='.$activationurl.'">Click to activate</a >'
 $headers = "from:bejibay@gmail.com";
-mail($to,$msg,$header);
+mail($to,$subject,$msg,$header);
 }
 }
 }
 }
 }
-},ú
+}
 //set the errors for email, password and signup
 if(empty($firstname)) $fnameError = "firstname cannot be empty";
 if(empty($lastname)) $lnameError = "lastname cannot beg empty";
 if(empty($email)) $emailError = "email cannot be empty";
 if(empty($password)) $passwordError ="password cannot be empty";
-if($password != $confirmpassword) $password =  " passwords do not match";
+if($password != $confirmpassword) $passwordError =  " passwords do not match";
 if(!(filter_var($email,FILTER_VALIDATE_EMAIL))
 $emailError = "email is not valid";
+if(!preg_match($passwordpattern,$password)) $passwordError = "password not valid";
 if(mysqli_num_rows(result)>1) $accountError ="email already used";
 if(!mysqli_query($conn,$sql)) $accountError ="account not created";
 ?>
