@@ -1,6 +1,24 @@
 <?php 
 // include the configuration file
 include confg.php;?>
+<?php 
+if(isset($_POST['signin'])){
+$email =isset($_POST['email']);
+$password = isset($_POST['password']);
+$password = hash_password($password);
+$sql = " SELECT* FROM user where email = $email AND
+password = $password";
+mysqli_querry($conn, $sql);
+if(mysql_num_rows()=1){
+$_SESSION['email'];
+$_SESSION['firstname'];
+$_SESSION['lastname'];
+header("location:/dashboard");
+}
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
