@@ -3,13 +3,14 @@
 include confg.php;?>
 <?php 
 //set variables for errors to empty;
-$emailError = $passwordError = accountNotExistError = "";
+$emailError = $passwordError = accountNotExist = "";
 
 //email is not empty and verify
 // password is not empty, user should remember password
 
 if(isset($_POST['signin'])){
 $email =isset($_POST['email']);
+$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 $email = filter_var($email, FILTER_SANITISE_EMAIL);
 $password = isset($_POST['password']);
 $password = mysqli_real_escape_string($conn,$password);
