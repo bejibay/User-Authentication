@@ -45,8 +45,8 @@ else={
 <div id="container">
 <div class="topnav">
 <div id="mytopnav">
-  <a href="/about">About</a>
-  <a href="/contact">Contact</a>
+  <a href="#">About</a>
+  <a href="#">Contact</a>
  </div>
 <a href="javascript:void(0);" class="icon" onclick="displayIcon()"><i class="fa fa-bars"></i></a>
 </div>
@@ -55,15 +55,30 @@ else={
 <form action ="" method ="post">
 <h2>Create Account</>
 <label for="firstname">Firstname</label>
+<div>
 <input type="text" id="firstname" name="firstname">
+<i class fa fa-user icon"></i>
+</div>
 <label for="lastname">Lastname</label>
+<div>
 <input type="text" id="lastname" name="lastname">
+<i class fa fa-user icon"></i>
+</div>
 <label for="email">Email</label>
+<div>
 <input type="text" id="email" name="email">
+<i class fa fa-envelope icon"></i>
+</div>
 <label for="password">Password</label>
+<div>
 <input type="text" id="password" name="password">
+<i class fa fa-key icon"></i>
+</div>
 <label for="confirmpassword">Confirm Password</label>
+<div>
 <input type="text" id="confirmpassword" name="confirmpassword">
+<i class fa fa-key icon"></i>
+</div>
 <input type ="radio">Contains at least one upper case letter
 <input type ="radio">Contains at least one special character
 <input type ="radio">Contains at least one number
