@@ -46,15 +46,16 @@ if(mysqli_query($conn,$sql)){
 //send activation email
 
 $to = $_POST['email'];
-$msg = "/activation.php?activationurl='<?php echo $activationurl ?>"
-$header = "from:bejibay@gmail.com"
+$msg = 'Click on email below to activate <br>
+<a href="/activation.php?activationurl='.$activationurl.'">Click to activate</a >'
+$headers = "from:bejibay@gmail.com";
 mail($to,$msg,$header);
 }
 }
 }
 }
 }
-}
+},ú
 //set the errors for email, password and signup
 if(empty($firstname)) $fnameError = "first cannot be empty";
 if(empty($lastname)) $lnameError = "last name cannot empty";
