@@ -6,6 +6,8 @@
 include confg.php;?>
 <?php 
 <?php 
+//set variables for errors to empty;
+$emailError = $passwordError = accountError = "";
 if(isset($_POST['signup'])){
 //define variables
 $firstname=isset($_POST['firstname']);
