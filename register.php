@@ -23,7 +23,7 @@ filter_var($email, FILTER_VALIDATE_EMAIL)&&
 $password===$confirmpassword){
 $sql="SELECT* FROM user where email=$email";
 $resultemail = mysqli_query($con, $sql);
-if(mysqli_num_rows($resultemail)<1){
+if(mysqli_num_rows($result)<1){
 //generate activation URL
 $activateurl =md5(rand(0,999).time());
 $sql = "INSERT INTO user(firstname,lastname,email,
@@ -50,8 +50,8 @@ if(empty($password)) $passwordError ="password cannot be empty";
 if($password != $confirmpassword) $password =  " passwords do not match";
 if(!(filter_var($email,FILTER_VALIDATE_EMAIL))
 $emailError = "email is not valid";
-if(mysqli_num_rows(resultone)<1) $accountError =" invalid entries or account not exis";
-if(mysqli_num_rows(resulttwo)<1) $passwordError ="Password is 
+if(mysqli_num_rows(result)>1) $accountError ="email already used";
+if(!mysqli_query($conn,$sql)) $accountError ="account not created";
 ?>
 <?php 
 <!DOCTYPE html>
