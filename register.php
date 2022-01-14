@@ -46,6 +46,7 @@ if(mysqli_query($conn,$sql)){
 //send activation email
 
 $to = $_POST['email'];
+$subject = " Activate jour account";
 $msg = 'Click on email below to activate <br>
 <a href="/activation.php?activationurl='.$activationurl.'">Click to activate</a >'
 $headers = "from:bejibay@gmail.com";
@@ -57,8 +58,8 @@ mail($to,$msg,$header);
 }
 },ú
 //set the errors for email, password and signup
-if(empty($firstname)) $fnameError = "first cannot be empty";
-if(empty($lastname)) $lnameError = "last name cannot empty";
+if(empty($firstname)) $fnameError = "firstname cannot be empty";
+if(empty($lastname)) $lnameError = "lastname cannot beg empty";
 if(empty($email)) $emailError = "email cannot be empty";
 if(empty($password)) $passwordError ="password cannot be empty";
 if($password != $confirmpassword) $password =  " passwords do not match";
