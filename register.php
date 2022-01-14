@@ -16,7 +16,7 @@ $email=isset($_POST['email']);
 $password=isset($_POST['password']);
 $confirmpassword=isset($_POST['confirmpassword']);
 if(preg_match("/^[A-Za-z]*$/",$firstname)&&
-preg_match(*/^[A-Za-z]*$/",$lastname)&&
+preg_match("/^[A-Za-z]*$/",$lastname)&&
 preg_match(/^[A-Za-z]+$/,$password)&&
 preg_match(/^[A-Za-z]+$/,$confirmpassword)&&
 filter_var($email, FILTER_VALIDATE_EMAIL)&&
@@ -26,13 +26,13 @@ $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result)<1){
 
 //generate activation URL
-$activateurl =md5(rand(0,999).time());
+$activationurl =md5(rand(0,999).time());
 
 //sanitise against SQL injection
-$firstname = mysqli-real_escape_string($conn $firstname);
-$lastname = mysqli-real_escape_string($conn $lastname);
-$email = mysqli-real_escape_string($conn $email);
-$password = mysqli-real_escape_string($conn $password);
+$firstname = mysqli_real_escape_string($conn, $firstname);
+$lastname = mysqli_real_escape_string($conn, $lastname);
+$email = mysqli_real_escape_string($conn, $email);
+$password = mysqli_real_escape_string($conn, $password);
 
 //hash the password
 $passwordhash = password_hash($password, PASSWORD_BCRYPT);
