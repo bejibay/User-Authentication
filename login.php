@@ -2,21 +2,34 @@
 // include the configuration file
 include confg.php;?>
 <?php 
+//set variables for errors to empty;
+$emailError = $passwordError = accountNotExistError = "";
+
+//email is not empty and verify
+// password is not empty, user should remember password
+
 if(isset($_POST['signin'])){
 $email =isset($_POST['email']);
+$email = filter_var($email, FILTER_SANITISE_EMAIL);
 $password = isset($_POST['password']);
-$password = hash_password($password);
+$password = mysqli_real_escape_string($conn,$password);
+$password = hash_password($password,PASSWORD_BCRYPT);
 $sql = " SELECT* FROM user where email = $email AND
-password = $password";
-mysqli_querry($conn, $sql);
-if(mysql_num_rows()=1){
-$_SESSION['email'];
-$_SESSION['firstname'];
-$_SESSION['lastname'];
-header("location:/dashboard");
+password = $password AND status = 1";
+$result = mysqli_querry($conn, $sql);
+if(mysql_num_rows($result)>0){
+while($row = mysqli_fetch_array(result)){
+$email = $row['id'];
+$firstname = $row['firstname'];
+$lastname = $row['lastname'];
+$_SESSION['email'] = $email;
+$_SESSION['firstname'] =$firstname;
+$_SESSION['lastname'] = $lastname;
+header("Location:/dashboard");
+}
+}
 }
 
-}
 
 ?>
 <!DOCTYPE html>
