@@ -77,7 +77,7 @@ if(mysqli_num_rows(resulttwo)<1) $passwordError ="Password is incorrect";
 </div>
 <input type="submit" name="signin" value="Sign In">
 </form>
-<p class ="buttom">Don't have an account <a href="/register" class ="sign">Sign up</a>
+<p class ="pbuttom">Don't have an account <a href="/register" class ="sign">Sign up</a>
 </div>
 </div>
 <div class="footer">
