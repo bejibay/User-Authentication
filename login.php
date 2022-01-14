@@ -3,7 +3,7 @@
 include confg.php;?>
 <?php 
 //set variables for errors to empty;
-$emailError = $passwordError = accountNotExist = "";
+$emailError = $passwordError = accountError = "";
 
 //email is not empty and verify
 // password is not empty, user should remember password
@@ -35,7 +35,7 @@ if(empty($email)) $emailError = "email cannot be empty";
 if(!(filter_var($email,FILTER_VALIDATE_EMAIL))
 $emailError = "email is not valid";
 if(empty($password)) $passwordError ="email cannot be empty";
-if(mysqli_num_rows(result)<1) $accountNotExist =" You are not a registered user";
+if(mysqli_num_rows(result)<1) $accountError =" invalid entries or account not exis";
 
 ?>
 <!DOCTYPE html>
