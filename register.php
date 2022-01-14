@@ -26,6 +26,15 @@ $resultemail = mysqli_query($con, $sql);
 if(mysqli_num_rows($result)<1){
 //generate activation URL
 $activateurl =md5(rand(0,999).time());
+//sanitise against SQL injection
+$firstname = mysqli-real_escape_string($conn $firstname);
+$lastname = mysqli-real_escape_string($conn $lastname);
+$email = mysqli-real_escape_string($conn $email);
+$password = mysqli-real_escape_string($conn $password);
+
+//hash the password
+$passwordhash = password_hash($password, PASSWORD_BCRYPT);
+
 $sql = "INSERT INTO user(firstname,lastname,email,
 password,timestamp,reseturl,status)VALUES($firstname,$lastname,$email,$password,
 $timestamp,$reseturl,$status)";
