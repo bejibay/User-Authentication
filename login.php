@@ -56,8 +56,8 @@ if(mysqli_num_rows(resulttwo)<1) $passwordError ="Password is incorrect";
 <div id="container">
 <div class="topnav">
 <div id="mytopnav">
-  <a href="/about">About</a>
-  <a href="/contact">Contact</a>
+  <a href="#">About</a>
+  <a href="#">Contact</a>
  </div>
 <a href="javascript:void(0);" class="icon" onclick="displayIcon()"><i class="fa fa-bars"></i></a>
 </div>
