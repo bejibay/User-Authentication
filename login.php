@@ -34,7 +34,7 @@ header("Location:/dashboard");
 if(empty($email)) $emailError = "email cannot be empty";
 if(!(filter_var($email,FILTER_VALIDATE_EMAIL))
 $emailError = "email is not valid";
-if(empty($password)) $passwordError ="email cannot be empty";
+if(empty($password)) $passwordError ="password cannot be empty";
 if(mysqli_num_rows(result)<1) $accountError =" invalid entries or account not exis";
 
 ?>
