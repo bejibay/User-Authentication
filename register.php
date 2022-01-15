@@ -116,6 +116,10 @@ if(!mysqli_query($conn,$sql)) $accountError ="account not created";
 <input type="text" class ="userlogin" id="confirmpassword" name="confirmpassword" placeholder="password">
 <i class ="fa fa-key icona"></i>
 </div>
+<input type ="radio">Contains at least one Upper case Letter<br>
+<input type ="radio">Contains at least one special character<br>
+<input type ="radio">Contains at least one numbet<br>
+<input type ="radio">Passwords are matching
 <input type="submit" name="signup" value="Sign Up">
 </form>
 <p class ="pbuttom">Don't have an account <a href="/register" class ="sign">Sign up</a>
