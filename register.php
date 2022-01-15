@@ -17,7 +17,7 @@ $passwordpattern ="/^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#\-_$%^&+=§!\?])
 if(preg_match("/^[A-Za-z]*$/",$firstname)&&
 preg_match("/^[A-Za-z]*$/",$lastname)&&
 preg_match($passwordpattern,$password)
- && filter_var($email, FILTER_VALIDATE_EMAIL)
+ && filter_var($email, FILTER_VALIDATE_EMAIL)&&
 $password==$confirmpassword){
 $sql="SELECT* FROM user where email=$email";
 $result = mysqli_query($conn, $sql);
