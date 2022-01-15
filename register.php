@@ -17,7 +17,7 @@ $passwordpattern ="/^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#\-_$%^&+=§!\?])
 if(preg_match("/^[A-Za-z]*$/",$firstname)&&
 preg_match("/^[A-Za-z]*$/",$lastname)&&
 preg_match($passwordpattern,$password)
- && filter_var($email, FILTER_VALIDATE_EMAIL)&&
+ && filter_var($email, FILTER_VALIDATE_EMAIL)
 $password==$confirmpassword){
 $sql="SELECT* FROM user where email=$email";
 $result = mysqli_query($conn, $sql);
@@ -105,13 +105,18 @@ if(!mysqli_query($conn,$sql)) $accountError ="account not created";
 <div class ="userlogin">
 <input type="text" class="userlogin" id="email" name="email" placeholder="johndoe@gmail.com">
 <i class ="fa fa-envelope icona"></i>
-<label for="password" class="userlogin">Password:</label>
 </div>
+<label for="password" class="userlogin">Password</label>
+<label for="confirmpassword" class="userlogin">Confirmpassword</label>
 <div class ="userlogin">
 <input type="text" class ="userlogin" id="password" name="password" placeholder="password">
 <i class ="fa fa-key icona"></i>
 </div>
-<input type="submit" name="signin" value="Sign In">
+<div class ="userlogin">
+<input type="text" class ="userlogin" id="confirmpassword" name="confirmpassword" placeholder="password">
+<i class ="fa fa-key icona"></i>
+</div>
+<input type="submit" name="signup" value="Sign Up">
 </form>
 <p class ="pbuttom">Don't have an account <a href="/register" class ="sign">Sign up</a>
 </div>
