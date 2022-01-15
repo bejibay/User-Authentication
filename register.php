@@ -122,7 +122,7 @@ if(!mysqli_query($conn,$sql)) $accountError ="account not created";
 <input type ="radio">Passwords are matching
 <input type="submit" name="signup" value="Sign Up">
 </form>
-<p class ="pbuttom">Don't have an account <a href="/register" class ="sign">Sign up</a>
+<p class ="pbuttom">Already have an account <a href="/login" class ="sign">Sign in</a>
 </div>
 </div>
 <div class="footer">
