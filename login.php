@@ -39,7 +39,7 @@ if(empty($email)) $emailError = "email cannot be empty";
 if(!(filter_var($email,FILTER_VALIDATE_EMAIL))
 $emailError = "email is not valid";
 if(empty($password)) $passwordError ="password cannot be empty";
-if(mysqli_num_rows(resultone)<1) $accountError =" invalid entries or account not exis";
+if(mysqli_num_rows(resultone)<1) $accountError =" invalid entries or account not exist";
 if(mysqli_num_rows(resulttwo)<1) $passwordError ="Password is incorrect";
 ?>
 <!DOCTYPE html>
