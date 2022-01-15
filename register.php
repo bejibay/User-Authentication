@@ -1,6 +1,6 @@
 <?php 
 // include the configuration file
-include "confg.php";?>
+include "config.php";?>
 <?php 
 //set variables for errors to empty;
 
