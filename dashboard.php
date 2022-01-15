@@ -1,6 +1,9 @@
 <?php 
 // include the configuration file
-include confg.php;?>
+include confg.php;
+session_start();
+if(!isset($_SESSION));
+?>
 <?php 
 // include the configuration file
 include confg.php;?>
@@ -18,8 +21,9 @@ include confg.php;?>
 <div id="container">
 <div class="topnav">
 <div id="mytopnav">
-  <a href="/about">About</a>
-  <a href="/contact">Contact</a>
+  <a href="#">About</a>
+  <a href="#">Contact</a>
+   <a href="/logout">Log Out</a>
  </div>
 <a href="javascript:void(0);" class="icon" onclick="displayIcon()"><i class="fa fa-bars"></i></a>
 </div>
