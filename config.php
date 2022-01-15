@@ -1,4 +1,6 @@
-<?php 
+<?php
+// easy use of headers
+ob_start();
 // parameters for database login
 $host = "localhost";
 $username = "user";
