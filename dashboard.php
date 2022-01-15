@@ -25,6 +25,12 @@ include confg.php;?>
 </div>
 <div class="row">
  <div class="col-12">
+<?php 
+if(isset($_SESSION['email'])){
+echo "<h3>Welcome</h3>";
+echo "you are logged in as ".$_SESSION['firstname']."".$_SESSION['lastname'];
+}
+?>
 </div>
 <div class="footer">
 &copy; copyright  ABC limited
