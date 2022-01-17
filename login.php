@@ -2,8 +2,8 @@
 // include the configuration file
 include confg.php;?>
 <?php 
-//set variables for errors to empty;
-$emailError = $passwordError = accountError = "";
+//variables for errors;
+global $emailError, $passwordError, accountError ;
 
 //email is not empty and verify
 // password is not empty, user should remember password
@@ -15,11 +15,18 @@ $email = filter_var($email, FILTER_SANITISE_EMAIL);
 $password = isset($_POST['password']);
 $password = mysqli_real_escape_string($conn,$password);
 $password = hash_password($password,PASSWORD_BCRYPT);
+
+/ set the errors for email, password and signin
+if(empty($email)) $emailError = "email cannot be empty";
+if(!(filter_var($email,FILTER_VALIDATE_EMAIL)))
+$emailError = "email is not valid";
+if(empty($password)) $passwordError ="password cannot be empty;
 $sql = " SELECT* FROM user where email = $email";
 $resultone = mysqli_querry($conn, $sql);
 if(mysql_num_rows($resultone)>0){
 $sql ="SELECT* FROM user where password =$password AND
 status = 1";
+if(mysqli_num_rows(resultone)<1) $accountError =" invalid entries or account not exist";
 $resulttwo = mysqli_querry($conn, $sql);
 if(mysql_num_rows($resulttwo)>0){
 while($row = mysqli_fetch_array($resulttwo)){
@@ -31,6 +38,7 @@ $_SESSION['firstname'] =$firstname;
 $_SESSION['lastname'] = $lastname;
 header("Location:/dashboard");
 }
+if(mysqli_num_rows(resulttwo)<1) $passwordError ="Password is incorrect";
 }
 }
 }
