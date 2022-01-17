@@ -15,12 +15,20 @@ $email = filter_var($email, FILTER_SANITISE_EMAIL);
 $password = isset($_POST['password']);
 $password = mysqli_real_escape_string($conn,$password);
 $password = hash_password($password,PASSWORD_BCRYPT);
+else{// set the errors for email, password and signin
+if(empty($email)) $emailError = "email cannot be empty";
+if(!(filter_var($email,FILTER_VALIDATE_EMAIL)))
+$emailError = "email is not valid";
+if(empty($password)) $passwordError ="password cannot be empty";
+}
 $sql = " SELECT* FROM user where email = $email";
 $resultone = mysqli_querry($conn, $sql);
 if(mysql_num_rows($resultone)>0){
 $sql ="SELECT* FROM user where password =$password AND
 status = 1";
-$resuulttwo = mysqli_querry($conn, $sql);
+else{if(mysqli_num_rows(resultone)<1) $accountError =" invalid entries or account not exist";
+}
+$resulttwo = mysqli_querry($conn, $sql);
 if(mysql_num_rows($resulttwo)>0){
 while($row = mysqli_fetch_array($resulttwo)){
 $email = $row['id'];
@@ -30,6 +38,10 @@ $_SESSION['email'] = $email;
 $_SESSION['firstname'] =$firstname;
 $_SESSION['lastname'] = $lastname;
 header("Location:/dashboard");
+}
+else{
+if(mysqli_num_rows(resulttwo)<1) $passwordError ="Password is incorrect";
+
 }
 }
 }
