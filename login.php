@@ -82,7 +82,7 @@ if(mysqli_num_rows(resulttwo)<1) $passwordError ="Password is incorrect";
 <div class="footer">
 &copy; copyright  ABC limited"
 </div>
-<script src="landingpage.js"></script>
+<script src="auth.js"></script>
 </div>
 </body>
 </html>
