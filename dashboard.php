@@ -10,8 +10,8 @@ include confg.php;?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Create Accohnt</title>
-<meta name="description" content="create account">
+<title>Admin Centre</title>
+<meta name="description" content="Admin Centre">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="auth.css">
@@ -39,7 +39,7 @@ echo "you are logged in as ".$_SESSION['firstname']."".$_SESSION['lastname'];
 <div class="footer">
 &copy; copyright  ABC limited
 </div>
-<script src="landingpage.js"></script>
+<script src="auth.js"></script>
 </div>
 </body>
 </html>
