@@ -79,7 +79,7 @@ if(!mysqli_query($conn,$sql)) $accountError ="account not created";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Register Page</title>
+<title>Create An Account</title>
 <meta name="description" content="login page">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
