@@ -80,7 +80,7 @@ if(!mysqli_query($conn,$sql)) $accountError ="account not created";
 <html lang="en">
 <head>
 <title>Create An Account</title>
-<meta name="description" content="login page">
+<meta name="description" content="Create An Account">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="auth.css">
