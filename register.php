@@ -11,6 +11,13 @@ $lastname=isset($_POST['lastname']);
 $email=isset($_POST['email']);
 $password=isset($_POST['password']);
 $confirmpassword=isset($_POST['confirmpassword']);
+
+//set the errors for email, password
+if(empty($firstname)) $fnameError = "firstname cannot be empty";
+if(empty($lastname)) $lnameError = "lastname cannot beg empty";
+if(empty($email)) $emailError = "email cannot be empty";
+if(empty($password)) $passwordError ="password cannot be empty";
+
 $passwordpattern ="/^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#\-_$%^&+=§!\?])
 [0-9A-Za-z@#\-_$%^&+=§!\?]{8}$/";
                     
@@ -20,6 +27,12 @@ preg_match($passwordpattern,$password)
  && filter_var($email, FILTER_VALIDATE_EMAIL)&&
 $password==$confirmpassword){
 $sql="SELECT* FROM user where email=$email";
+
+if($password != $confirmpassword) $passwordError =  " passwords do not match";
+if(!(filter_var($email,FILTER_VALIDATE_EMAIL)))
+$emailError = "email is not valid";
+if(!preg_match($passwordpattern,$password)) $passwordError = "password not valid";
+
 $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result)<1){
 
@@ -39,6 +52,10 @@ $sql = "INSERT INTO user(firstname,lastname,email,
 password,date,activationurl,status)VALUES($firstname,$lastname,$email,$password,
 time(),$activationurl,$status)";
 mysqli_querry($conn,$sql);
+
+if(mysqli_num_rows(result)>1) $accountError ="email already used";
+
+
 if(mysqli_query($conn,$sql)){
 
 //send activation email
@@ -51,6 +68,7 @@ Click to activate</a >';
 $headers = "From:bejibay@gmail.com";
 mail($to,$subject,$msg,$headers);
 }
+if(!mysqli_query($conn,$sql)) $accountError ="account not created";
 }
 }
 }
