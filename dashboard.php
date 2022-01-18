@@ -1,12 +1,10 @@
 <?php 
 // include the configuration file
-include confg.php;
+include config.php;
 session_start();
 if(!isset($_SESSION));
 ?>
-<?php 
-// include the configuration file
-include confg.php;?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +21,7 @@ include confg.php;?>
 <div id="mytopnav">
   <a href="#">About</a>
   <a href="#">Contact</a>
-   <a href="/logout">Log Out</a>
+   <a href="logout.php">Log Out</a>
  </div>
 <a href="javascript:void(0);" class="icon" onclick="displayIcon()"><i class="fa fa-bars"></i></a>
 </div>
