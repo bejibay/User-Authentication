@@ -7,8 +7,8 @@ include "config.php";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Create Accohnt</title>
-<meta name="description" content="create account">
+<title>Home Page</title>
+<meta name="description" content="Home Page">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="auth.css">
@@ -31,7 +31,7 @@ include "config.php";
 <div class="footer">
 &copy; copyright  ABC limited
 </div>
-<script src="landingpage.js"></script>
+<script src="auth.js"></script>
 </div>
 </body>
 </html>
