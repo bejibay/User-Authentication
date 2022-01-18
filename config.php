@@ -6,8 +6,8 @@ $host = "localhost";
 $username = "authuser";
 $password = "123456";
 $dbname = "user";
-$conn = mysqli_connect($host,$username,$password,$dbname);
-if(!$conn){die("failed connection ". mysqli_connect_errno());
+$conn = new mysqli($host,$username,$password,$dbname);
+if(!$conn){die("failed connection ". $conn->connect_errno());
 }
 
 ?>
