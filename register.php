@@ -4,8 +4,8 @@ include "config.php";?>
 <?php 
 //variables for errors
 
-global fnaemeError,lnameError,emailError,
-passwordError, accountError;
+global $fnaemeError,$lnameError,$emailError,
+$passwordError, $accountError;
 
 if(isset($_POST['signup'])){
 //define variables
