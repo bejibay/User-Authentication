@@ -2,7 +2,10 @@
 // include the configuration file
 include "config.php";?>
 <?php 
-//set variables for errors to empty;
+//variables for errors
+
+global fnaemeError,lnameError,emailError,
+passwordError, accountError;
 
 if(isset($_POST['signup'])){
 //define variables
@@ -73,19 +76,6 @@ if(!mysqli_query($conn,$sql)) $accountError ="account not created";
 }
 }
 
-
-//set the errors for email, password and signup
-if(empty($firstname)) $fnameError = "firstname cannot be empty";
-if(empty($lastname)) $lnameError = "lastname cannot beg empty";
-if(empty($email)) $emailError = "email cannot be empty";
-if(empty($password)) $passwordError ="password cannot be empty";
-if($password != $confirmpassword) $passwordError =  " passwords do not match";
-if(!(filter_var($email,FILTER_VALIDATE_EMAIL)))
-$emailError = "email is not valid";
-if(!preg_match($passwordpattern,$password)) $passwordError = "password not valid";
-if(mysqli_num_rows(result)>1) $accountError ="email already used";
-if(!mysqli_query($conn,$sql)) $accountError ="account not created";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
