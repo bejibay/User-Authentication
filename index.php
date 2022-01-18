@@ -18,9 +18,9 @@ include "confg.php";
 <div id="container">
 <div class="topnav">
 <div id="mytopnav">
-  <a href="/login.php">Sign in</a>
-  <a href="/register.php">Sign up</a>
-   <a href="/logout.php">Log Out</a>
+  <a href="login.php">Sign in</a>
+  <a href="register.php">Sign up</a>
+   <a href="logout.php">Log Out</a>
  </div>
 <a href="javascript:void(0);" class="icon" onclick="displayIcon()"><i class="fa fa-bars"></i></a>
 </div>
