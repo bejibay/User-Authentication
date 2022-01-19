@@ -1,8 +1,3 @@
-<?php 
-// include the configuration file
-include "config.php";
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
