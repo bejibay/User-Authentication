@@ -9,6 +9,6 @@ $conn= new PDO(DB_DSN,DB_USERNAME,DB_PASSWORD);
 echo "successful connection";
 }
 catch(PDOException $pe){
-ech "something went wrong ".$pe->getMessage():
+echo "something went wrong ".$pe->getMessage():
 }
 ?>
