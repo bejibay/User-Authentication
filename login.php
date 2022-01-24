@@ -42,7 +42,6 @@ header("Location:/dashboard");
 if(!$rowtwo) $passwordError ="Password is incorrect";
 }
 }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
