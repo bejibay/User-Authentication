@@ -1,10 +1,7 @@
 <?php 
-// include the configuration file
-include config.php;
 session_start();
 if(!isset($_SESSION));
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
