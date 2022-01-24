@@ -23,11 +23,10 @@ $sql = "SELECT* FROM user where email = :email";
 $conn->prepare($sql);
 $stmt->bindValue(": email", $email);
 $stmt->execute();
-$rowone = $stmt->fetch(PDO::FETCH_ASSOC);
-if($rowone>0){
+if($rowone = $stmt->fetch(PDO::FETCH_ASSOC)){
 $sql ="SELECT* FROM user where password =:password AND
 status = 1";
-if($rowone<1) $accountError =" invalid entries or account not exist";
+if(!$rowone) $accountError =" invalid entries or account not exist";
 $conn->prepare($sql);
 $stmt->bindValue(":password",$password);
 $stmt->execute();
@@ -41,6 +40,7 @@ $_SESSION['lastname'] = $lastname;
 header("Location:/dashboard");
 }
 if(!$rowtwo) $passwordError ="Password is incorrect";
+}
 }
 }
 ?>
