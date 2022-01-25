@@ -1,7 +1,21 @@
 <?php 
 // include the configuration file
 include "confg.php";
-
+if(isset($_GET['activationurl'])){
+$sql = " SELECT* FROM user where activationurl =:activationurl";
+$conn->prepare($sql);
+$stmt->bindValue(":activationurl",$_GET['activationurl'],PDO::PARAM_STR);
+$stmt->execute();
+$row = $stmt->fetch();
+if(!$row) $activationError = "Activation URL not found";
+if($row){ 
+$sql = "UPDATE user SET status = 1 where activationurl=:activationurl";
+$conn->prepare($sql);
+$stmt->bindValue(":activationurl",$_GET['activationurl'],PDO::PARAM_STR);
+$stmt->execute();
+$activationSuccess ="Your account is now activated<br>"."Login at "."<a href ='/login.php'>Login</a>";
+}
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,13 +34,12 @@ include "confg.php";
 <div id="mytopnav">
   <a href="#">About</a>
   <a href="#">Contact</a>
-   <a href="/logout">Log Out</a>
- </div>
+</div>
 <a href="javascript:void(0);" class="icon" onclick="displayIcon()"><i class="fa fa-bars"></i></a>
 </div>
 <div class="row">
  <div class="col-12">
-<h2>Home Page</h2>
+<p><?php echo $activationSuccess;?></p>
 </div>
 <div class="footer">
 &copy; copyright  ABC limited
