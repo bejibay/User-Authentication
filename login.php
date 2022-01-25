@@ -21,9 +21,9 @@ $emailError = "email is not valid";
 if(empty($password)) $passwordError ="password cannot be empty";
 $sql = "SELECT* FROM user where email = :email";
 $conn->prepare($sql);
-$stmt->bindValue(": email", $email);
+$stmt->bindValue(": email", $email,PDO::PARAM_STR);
 $stmt->execute();
-if($rowone = $stmt->fetch(PDO::FETCH_ASSOC)){
+if($rowone = $stmt->fetch()){
 $sql ="SELECT* FROM user where password =:password AND
 status = 1";
 if(!$rowone) $accountError =" invalid entries or account not exist";
