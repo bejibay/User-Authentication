@@ -35,10 +35,11 @@ preg_match($passwordpattern,$password)
 $password==$confirmpassword){
 $sql="SELECT* FROM user where email=:email";
 $conn->prepare($sql);
-$stmt->bindValue(": email", $email);
+$stmt->bindValue(": email", $email,PDO::PARAM_STR);
 $stmt->execute();
-if(!$row = $stmt->fetch())$accountError ="email already used";
-if($row = $stmt->fetch()){
+$row = $stmt->fetch();
+if($row)$accountError ="email already used";
+if(!$row){
 //generate activation URL
 $activationurl =md5(rand(0,999).time());
 
@@ -55,13 +56,13 @@ $sql = "INSERT INTO user(firstname,lastname,email,
 password,date,activationurl,status)VALUES(:firstname,:lastname,:email,:password,
 :date,:activationurl,:status)";
 $conn->prepare($sql);
-$stmt->bindValue(":firstname", $firstname);
-$stmt->bindValue(":lastname", $lastname);
-$stmt->bindValue(":email", $email);
-$stmt->bindValue(":password", $password);
-$stmt->bindValue(":date", time());
-$stmt->bindValue(":activationurl", $activationurl);
-$stmt->bindValue(":status", $status);
+$stmt->bindValue(":firstname", $firstname, PDO::PARAM_STR);
+$stmt->bindValue(":lastname", $lastname,PDO::PARAM_STR);
+$stmt->bindValue(":email", $email,PDO::PARAM_STR);
+$stmt->bindValue(":password", $password,PDO::PARAM_STR);
+$stmt->bindValue(":date", time(),PDO::PARAM_INT);
+$stmt->bindValue(":activationurl", $activationurl,PDO::PARAM_STR);
+$stmt->bindValue(":status",1,PDO::PARAM_INT);
 $stmt->execute();
 
 //send activation email
@@ -74,10 +75,10 @@ Click to activate</a >';
 $headers = "From:bejibay@gmail.com";
 mail($to,$subject,$msg,$headers);
 }
- $accountError ="account not created";
+else{$accountError ="account not created";}
 }
 }
-}
+
 
 <!DOCTYPE html>
 <html lang="en">
