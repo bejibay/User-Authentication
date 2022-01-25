@@ -19,25 +19,27 @@ if(empty($email)) $emailError = "email cannot be empty";
 if(!filter_var($email,FILTER_VALIDATE_EMAIL))
 $emailError = "email is not valid";
 if(empty($password)) $passwordError ="password cannot be empty";
-$sql = "SELECT* FROM user where email = $email";
-$resultone = mysqli_querry($conn, $sql);
-if(mysql_num_rows($resultone)>0){
-$sql ="SELECT* FROM user where password =$password AND
+$sql = "SELECT* FROM user where email = :email";
+$conn->prepare($sql);
+$stmt->bindValue(": email", $email,PDO::PARAM_STR);
+$stmt->execute();
+if($rowone = $stmt->fetch()){
+$sql ="SELECT* FROM user where password =:password AND
 status = 1";
-if(mysqli_num_rows(resultone)<1) $accountError =" invalid entries or account not exist";
-$resulttwo = mysqli_querry($conn, $sql);
-if(mysql_num_rows($resulttwo)>0){
-while($row = mysqli_fetch_array($resulttwo)){
-$email = $row['id'];
-$firstname = $row['firstname'];
-$lastname = $row['lastname'];
+if(!$rowone) $accountError =" invalid entries or account not exist";
+$conn->prepare($sql);
+$stmt->bindValue(":password",$password);
+$stmt->execute();
+if($rowtwo = $stmt->fetch(PDO::FETCH_ASSOC)){
+$email = $rowtwo['id'];
+$firstname = $rowtwo['firstname'];
+$lastname = $rowtwo['lastname'];
 $_SESSION['email'] = $email;
 $_SESSION['firstname'] =$firstname;
 $_SESSION['lastname'] = $lastname;
 header("Location:/dashboard");
 }
-if(mysqli_num_rows(resulttwo)<1) $passwordError ="Password is incorrect";
-}
+if(!$rowtwo) $passwordError ="Password is incorrect";
 }
 }
 ?>
