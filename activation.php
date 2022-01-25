@@ -1,6 +1,7 @@
 <?php 
 // include the configuration file
 include "confg.php";
+global $activationError, $activationSuccess;
 if(isset($_GET['activationurl'])){
 $sql = " SELECT* FROM user where activationurl =:activationurl";
 $conn->prepare($sql);
@@ -40,7 +41,8 @@ $activationSuccess ="Your account is now activated<br>"."Login at "."<a href ='/
 </div>
 <div class="row">
  <div class="col-12">
-<p><?php echo $activationSuccess;?></p>
+<p><?php echo $activationError;?>
+<?php echo $activationSuccess;?></p>
 </div>
 <div class="footer">
 &copy; copyright  ABC limited
@@ -49,3 +51,4 @@ $activationSuccess ="Your account is now activated<br>"."Login at "."<a href ='/
 </div>
 </body>
 </html>
+
