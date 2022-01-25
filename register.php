@@ -74,6 +74,7 @@ $msg = 'Click on email below to activate <br>
 Click to activate</a >';
 $headers = "From:bejibay@gmail.com";
 mail($to,$subject,$msg,$headers);
+$accountSuccess = " check your email to activate your account";
 }
 else{$accountError ="account not created";}
 }
