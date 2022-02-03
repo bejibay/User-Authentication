@@ -1,10 +1,18 @@
 # User-Authentication
+* Account creation and login is a common 
+features of many web applications. 
+* With the user authentication you can create an 
+account and also verify your credentials
+when logging in.
 ## Technologies used
-* PHP, HTML, JavaScript, CSS
-## How to use the scripts
-* from your host control panel create a database
-* create a table with the columns contained in table.sql
-* load all the files into the public directory of your host
-* Navigate to different parts of your site :index.php, login.php and register.php
+* The User-Authentication is created with PHP, HTML, JavaScript and CSS
+## Scripts
+* config.php for database login.
+* register.php for account creation.
+* login.php account login.
+* activation.php for account activation
+## Application
+* the User_Authorisation can be applied and enhanced 
+with more features like password reset
 
 
