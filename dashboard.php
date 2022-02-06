@@ -1,9 +1,11 @@
 <?php 
 session_start();
-if(!isset($_SESSION));
+if(!isset($_SESSION['firstname'])&&!isset($_SESSION['lastname'])
+&&!isset($_SESSION['email']))
+header("Location:index.php");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">{×
 <head>
 <title>Admin Centre</title>
 <meta name="description" content="Admin Centre">
