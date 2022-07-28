@@ -43,3 +43,10 @@ if(!$rowtwo) $passwordError ="Password is incorrect";
 }
 }
 include "/template/login.html";
+
+<?php     
+    session_start();
+    session_destroy();
+      
+    header("Location:/index.php")
+;?>
